@@ -43,6 +43,9 @@ Route::get('guessPictures', [App\Http\Controllers\PictureController::class, 'gue
 Route::get('load', [App\Http\Controllers\PictureController::class, 'load'])->name('load');
 
 Route::resource('tracks', App\Http\Controllers\TrackController::class);
+
+
+
 Route::resource('pictures', App\Http\Controllers\PictureController::class);
 
 
