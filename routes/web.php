@@ -42,6 +42,12 @@ Route::get('guessPictures', [App\Http\Controllers\PictureController::class, 'gue
 
 Route::get('load', [App\Http\Controllers\PictureController::class, 'load'])->name('load');
 
+Route::get('loadTracks', [App\Http\Controllers\TrackController::class, 'loadTracks'])->name('loadTracks');
+Route::get('saveTrackInfo', [App\Http\Controllers\TrackController::class, 'saveTrackInfo'])->name('saveTrackInfo');
+
+
+
+
 Route::resource('tracks', App\Http\Controllers\TrackController::class);
 
 

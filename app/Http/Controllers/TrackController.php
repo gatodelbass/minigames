@@ -12,6 +12,7 @@ use App\Http\Requests\UpdateTrackRequest;
 use Carbon;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\File\File;
+use Illuminate\Support\Facades\Storage;
 
 
 class TrackController extends Controller
@@ -169,4 +170,57 @@ class TrackController extends Controller
         ]);
        
     }
+
+
+    public function loadTracks(){
+       
+        $files = Storage::files("public/load/tracks");
+        
+        foreach ($files as $key => $value) {
+          
+
+            try {
+                      
+                    $file = basename($value);
+
+                    Storage::move($value, 'public/tracks/'  . $file);
+
+                    $track = new Track;
+                    
+                    $track->name =  str_replace('-', ' ', preg_replace('/[0-9]+/', '', pathinfo($file, PATHINFO_FILENAME)))  ; 
+                    $track->author = str_replace('-', ' ', preg_replace('/[0-9]+/', '', pathinfo($file, PATHINFO_FILENAME)))  ; 
+                    $track->level = "Easy";
+                    $track->file = $file;
+                    $track->save();
+                
+            } catch (\Throwable $th) {
+                throw $th;
+            }
+
+           // Log::debug($value);
+        }
+        dd($files);
+    }
+
+
+    public function saveTrackInfo(Request $request){
+
+        $track = Track::find($request->params["id"]);
+        $track->name = $request->params["name"];
+        $track->author = $request->params["author"];
+        $track->level = $request->params["level"];
+        $track->save();
+
+        return response()->json([
+
+            "ok"
+        ]);
+
+
+    }
 }
+
+
+
+
+
