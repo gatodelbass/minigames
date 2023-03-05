@@ -63,6 +63,43 @@
                         :src="'/storage/movies/' + movie.file"
                     />
 
+                    <div
+                        class="absolute w-20 h-20 top-0 left-0 hide"
+                        hidden
+                    ></div>
+                    <div
+                        class="absolute w-20 h-20 top-20 left-20 hide"
+                        hidden
+                    ></div>
+                    <div
+                        class="absolute w-20 h-20 top-40 left-40 hide"
+                        hidden
+                    ></div>
+                    <div
+                        class="absolute w-20 h-20 top-60 left-60 hide"
+                        hidden
+                    ></div>
+                    <div
+                        class="absolute w-20 h-20 top-80 left-80 hide"
+                        hidden
+                    ></div>
+                    <div
+                        class="absolute w-20 h-20 top-100 left-100 hide"
+                        hidden
+                    ></div>
+                    <div
+                        class="absolute w-20 h-20 top-120 left-100 hide"
+                        hidden
+                    ></div>
+                    <div
+                        class="absolute w-20 h-20 top-140 left-100 hide"
+                        hidden
+                    ></div>
+                    <div
+                        class="absolute w-20 h-20 top-160 left-100 hide"
+                        hidden
+                    ></div>
+
                     <div v-for="x in 9" :key="x" v-if="!movie.solve">
                         <div v-for="y in 6" :key="y">
                             <div
@@ -78,51 +115,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="justify-center flex flex-wrap px-5 m-2">
-            <table class="min-w-full table-auto">
-                <thead class="justify-between">
-                    <tr class="bg-gray-800">
-                        <th class="px-4 py-2">
-                            <span class="text-gray-300">#</span>
-                        </th>
-                        <th class="px-4 py-2">
-                            <span class="text-gray-300">Play</span>
-                        </th>
-
-                        <th class="px-4 py-2">
-                            <span class="text-gray-300">Name</span>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody class="bg-gray-200 text-center">
-                    <tr
-                        v-for="(movie, index) in state.movies"
-                        :key="movie.index"
-                        class="bg-white border-1 border-gray-200"
-                    >
-                        <td class="px-1 py-1">
-                            {{ index }}
-                        </td>
-                        <td class="z-0"></td>
-
-                        <td class="px-1 py-1">
-                            <span v-if="movie.revealName">{{
-                                movie.name
-                            }}</span>
-                            <span v-else
-                                ><button
-                                    @click="revealName(index)"
-                                    class="w-auto bg-teal-500 hover:bg-teal-600 rounded-sm shadow-xl font-medium text-gray-700 px-4 py-2"
-                                >
-                                    Reveal name!
-                                </button></span
-                            >
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </app-layout>
 </template>
