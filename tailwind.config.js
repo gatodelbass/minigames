@@ -55,7 +55,14 @@ module.exports = {
                 140: "35rem",
                 144: "36rem",
                 160: "40rem",
-                224: "56rem",
+                180: "45rem",
+                200: "50rem",
+                220: "55rem",               
+                240: "60rem",
+                260: "56rem",
+                280: "60rem",
+                300: "65rem",
+
             },
 
             borderWidth: {

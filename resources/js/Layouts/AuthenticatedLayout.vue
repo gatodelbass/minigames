@@ -61,6 +61,19 @@ const showingNavigationDropdown = ref(false);
                             </div>
 
 
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <NavLink :href="route('cars.index')" :active="route().current('cars.index')">
+                                    Cars
+                                </NavLink>
+                            </div>
+
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <NavLink :href="route('guessCars')" :active="route().current('guessCars')">
+                                    Guess cars!
+                                </NavLink>
+                            </div>
+
+
                         </div>
 
                         <div class="hidden sm:flex sm:items-center sm:ml-6">

@@ -39,6 +39,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('guessSongs', [App\Http\Controllers\TrackController::class, 'guessSongs'])->name('guessSongs');
 Route::get('guessMovies', [App\Http\Controllers\MovieController::class, 'guessMovies'])->name('guessMovies');
+Route::get('guessCars', [App\Http\Controllers\CarController::class, 'guessCars'])->name('guessCars');
 
 Route::get('load', [App\Http\Controllers\PictureController::class, 'load'])->name('load');
 
@@ -48,11 +49,13 @@ Route::get('saveTrackInfo', [App\Http\Controllers\TrackController::class, 'saveT
 Route::get('loadMovies', [App\Http\Controllers\MovieController::class, 'loadMovies'])->name('loadMovies');
 Route::get('saveMovieInfo', [App\Http\Controllers\MovieController::class, 'saveMovieInfo'])->name('saveMovieInfo');
 
-
+Route::get('loadCars', [App\Http\Controllers\CarController::class, 'loadCars'])->name('loadCars');
+Route::get('saveCarInfo', [App\Http\Controllers\CarController::class, 'saveCarInfo'])->name('saveCarInfo');
 
 
 Route::resource('tracks', App\Http\Controllers\TrackController::class);
 Route::resource('movies', App\Http\Controllers\MovieController::class);
+Route::resource('cars', App\Http\Controllers\CarController::class);
 
 
 

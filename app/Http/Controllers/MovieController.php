@@ -174,21 +174,15 @@ class MovieController extends Controller
 
     public function loadMovies(){
        
-        $files = Storage::files("public/load/movies");
-        
-        foreach ($files as $key => $value) {
-          
+        $files = Storage::files("public/load/movies");        
+        foreach ($files as $key => $value) {         
 
             try {
                       
                     $file = basename($value);
-
                     Storage::move($value, 'public/movies/'  . $file);
-
-                    $movie = new Movie;
-                    
-                    $movie->name =  "MOVIE"; 
-                   
+                    $movie = new Movie;                    
+                    $movie->name =  "MOVIE";                    
                     $movie->file = $file;
                     $movie->save();
                 
